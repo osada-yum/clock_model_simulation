@@ -24,7 +24,7 @@ program mpi_clock_dual_lattice_locality_simulation
      write(output_unit, '(a, i0)' ) "# the number of processors: ", num_proc
 
      write(error_unit, '(a,i0)'    ) "# Nsize: ", nall
-     write(error_unit, '(2(a, i0))') "# nx: ", nx, " ny: ", ny, " state: ", mstate
+     write(error_unit, '(3(a, i0))') "# nx: ", nx, " ny: ", ny, " state: ", mstate
      write(error_unit, '(2(a, i0))') "# MCS: ", mcs, " Nsample: ", nsample
      write(error_unit, '(a, g0)' ) "# 温度: ", kbt
      write(error_unit, '(a)' ) "# method: Metropolis"
