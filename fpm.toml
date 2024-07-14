@@ -18,6 +18,7 @@ implicit-external = false
 source-form = "free"
 [dependencies]
 numeric_simulation = { git = "https://github.com/osada-yum/Numerical_utilities.git" }
+mt19937_rng = { path = "../fortran_mt19937" }
 
 [[executable]]
 name = "mpi_clock_relaxation"
