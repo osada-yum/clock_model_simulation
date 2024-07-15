@@ -162,13 +162,11 @@ contains
          & sixclock_odd(x, uy), sixclock_odd(x, dy), sixclock_odd(lx, y), sixclock_odd(rx, y), &
          & sixclock_even(x, y), &
          & candidate_states)
-    if (prob >= 1d0) then
-       sixclock_even(x, y) = candidate_states
-       return
+    if (prob < 1d0) then
+       if (.not. (rnds(2, 2 * x - 1 + iand(y + 1, b'1'), y) < prob)) return
     end if
-    if (rnds(2, 2 * x - 1 + iand(y + 1, b'1'), y) < prob) then
-       sixclock_even(x, y) = candidate_states
-    end if
+    !> prob >= 1d0 .or. rnds(2, 2 * x - 1 + iand(y + 1, b'1'), y) < prob
+    sixclock_even(x, y) = candidate_states
   end subroutine local_flip_even
   !> local_flip_odd: Flip a spin of (x, y) position of lattice in the odd checkerboard.
   !> @param x A x-position of the spin.
@@ -188,13 +186,11 @@ contains
          & sixclock_even(x, uy), sixclock_even(x, dy), sixclock_even(lx, y), sixclock_even(rx, y), &
          & sixclock_odd(x, y), &
          & candidate_states)
-    if (prob >= 1d0) then
-       sixclock_odd(x, y) = candidate_states
-       return
+    if (prob < 1d0) then
+       if (.not. (rnds(2, 2 * x - 1 + iand(y, b'1'), y) < prob)) return
     end if
-    if (rnds(2, 2 * x - 1 + iand(y, b'1'), y) < prob) then
-       sixclock_odd(x, y) = candidate_states
-    end if
+    !> prob >= 1d0 .or. rnds(2, 2 * x - 1 + iand(y, b'1'), y) < prob
+    sixclock_odd(x, y) = candidate_states
   end subroutine local_flip_odd
   !> calc_energy: Calculate the energy density.
   pure real(real64) function calc_energy() result(res)
