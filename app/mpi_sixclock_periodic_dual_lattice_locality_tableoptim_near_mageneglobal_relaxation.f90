@@ -8,7 +8,7 @@ program mpi_clock_dual_locality_tableoptim_mageneglobal_simulation
   use variance_covariance_kahan_m
   use mpi_variance_covariance_kahan_m
   implicit none
-  character(len=*), parameter :: version = "dual_lattice_locality_tableoptim_near"
+  character(len=*), parameter :: version = "dual_lattice_locality_tableoptim_near_magneglobal"
   integer(int32), parameter :: mcs = 1000
   integer(int32), parameter :: nsample = 25
   integer(int64), parameter :: iseed = 42_int32
@@ -31,6 +31,7 @@ program mpi_clock_dual_locality_tableoptim_mageneglobal_simulation
 
   call init_sixclock()
   if (myrank == 0) then
+     call print_version()
      write(output_unit, '(a)') "#"//version
      write(output_unit, '(a,i0)'    ) "# Nsize: ", nall
      write(output_unit, '(3(a, i0))') "# nx: ", nx, " ny: ", ny, " state: ", mstate

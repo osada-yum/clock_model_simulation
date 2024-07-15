@@ -30,6 +30,7 @@ program mpi_clock_dual_lattice_locality_tableoptim_simulation
 
   call init_sixclock()
   if (myrank == 0) then
+     call print_version()
      write(output_unit, '(a)') "#"//version
      write(output_unit, '(a,i0)'    ) "# Nsize: ", nall
      write(output_unit, '(3(a, i0))') "# nx: ", nx, " ny: ", ny, " state: ", mstate

@@ -3,6 +3,9 @@ module sixclock_periodic_table_m
   use msmt19937
   implicit none
   private
+  character(len=*), parameter :: version = "table"
+  public :: print_version
+
   real(real64), parameter :: pi = 4 * atan(1.0d0)
 
   integer(int32), parameter :: mstate = 6
@@ -29,6 +32,10 @@ module sixclock_periodic_table_m
   public :: init_sixclock, init_sixclock_order, update_metropolis, calc_energy, calc_magne
 
 contains
+  impure subroutine print_version()
+    write(output_unit, '(a)') "#"//version
+    write(error_unit, '(a)') "#"//version
+  end subroutine print_version
   !> init_sixclock: Initialize 6-state clock model.
   impure subroutine init_sixclock()
     allocate(sixclock(nx, ny))

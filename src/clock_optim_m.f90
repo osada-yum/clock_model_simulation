@@ -3,7 +3,9 @@ module sixclock_periodic_optim_m
   use msmt19937
   implicit none
   private
-  character(len=*), parameter :: version = "optim"
+  character(len=*), parameter :: version = "dual_lattice_locality_tableoptim_near"
+  public :: print_version
+
   real(real64), parameter :: pi = 4 * atan(1.0d0)
 
   integer(int32), parameter :: mstate = 6
@@ -33,6 +35,10 @@ module sixclock_periodic_optim_m
   public :: init_sixclock, init_sixclock_order, update_metropolis, calc_energy, calc_magne
 
 contains
+  impure subroutine print_version()
+    write(output_unit, '(a)') "#"//version
+    write(error_unit, '(a)') "#"//version
+  end subroutine print_version
   !> init_sixclock: Initialize 6-state clock model.
   impure subroutine init_sixclock()
     integer(int32) :: i1, i2, i3, i4, i5, i6
