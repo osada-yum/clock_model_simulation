@@ -87,7 +87,7 @@ contains
        end if
        nearest_states(d) = sixclock(near_x, near_y)
     end do
-    candidate_states = sixclock(x, y) + (1 + floor(mstate * rnds(1, x, y)))
+    candidate_states = sixclock(x, y) + (1 + floor((mstate - 1) * rnds(1, x, y)))
     if (candidate_states >= mstate) candidate_states = candidate_states - mstate
     delta_e = calc_local_energy(nearest_states(1:4), candidate_states) &
          & - calc_local_energy(nearest_states(1:4), sixclock(x, y))

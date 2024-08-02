@@ -138,7 +138,7 @@ contains
        end if
        nearest_states(d) = sixclock(near_x, near_y)
     end do
-    candidate_states = sixclock(x, y) + (1 + floor(mstate * rnds(1, x, y)))
+    candidate_states = sixclock(x, y) + (1 + floor((mstate - 1) * rnds(1, x, y)))
     if (candidate_states >= mstate) candidate_states = candidate_states - mstate
     prob = probability_table(&
          & nearest_states(1), &

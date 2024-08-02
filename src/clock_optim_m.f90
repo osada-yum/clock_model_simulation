@@ -157,7 +157,7 @@ contains
     if (rx > nx / 2) rx = 1_int64
     lx = x + dx(left, iand(y, b'1'))
     if (lx < 1) lx = nx / 2
-    candidate_states = sixclock_even(x, y) + (1 + floor(mstate * grnd()))
+    candidate_states = sixclock_even(x, y) + (1 + floor((mstate - 1) * grnd()))
     if (candidate_states >= mstate) candidate_states = candidate_states - mstate
     prob = probability_table(&
          & sixclock_odd(x, uy), sixclock_odd(x, dy), sixclock_odd(lx, y), sixclock_odd(rx, y), &
@@ -181,7 +181,7 @@ contains
     if (rx > nx / 2) rx = 1_int64
     lx = x + dx(left, iand(y + 1, b'1'))
     if (lx < 1) lx = nx / 2
-    candidate_states = sixclock_odd(x, y) + (1 + floor(mstate * grnd()))
+    candidate_states = sixclock_odd(x, y) + (1 + floor((mstate - 1) * grnd()))
     if (candidate_states >= mstate) candidate_states = candidate_states - mstate
     prob = probability_table(&
          & sixclock_even(x, uy), sixclock_even(x, dy), sixclock_even(lx, y), sixclock_even(rx, y), &

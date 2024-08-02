@@ -134,7 +134,7 @@ contains
     if (rx > nx) rx = 1_int64
     lx = x - 1
     if (lx < 1) lx = nx
-    candidate_states = sixclock(x, y) + (1 + floor(mstate * rnds(1, x, y)))
+    candidate_states = sixclock(x, y) + (1 + floor((mstate - 1) * rnds(1, x, y)))
     if (candidate_states >= mstate) candidate_states = candidate_states - mstate
     prob = probability_table(&
          & sixclock(x, uy), sixclock(x, dy), sixclock(lx, y), sixclock(rx, y), &
