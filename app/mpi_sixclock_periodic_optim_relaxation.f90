@@ -20,7 +20,6 @@ program mpi_clock_optim_simulation
   call MPI_Init(ierr)
   call MPI_Comm_Rank(MPI_COMM_WORLD, myrank, ierr)
   call MPI_Comm_Size(MPI_COMM_WORLD, num_proc, ierr)
-  write(error_unit, '(a)') "# "//version
 
   call init_genrand(iseed)
   !> Skip random numbers. (num_proc * n_skip + myrank) * 2^e
